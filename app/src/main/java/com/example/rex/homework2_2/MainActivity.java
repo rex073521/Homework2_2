@@ -94,13 +94,25 @@ public class MainActivity extends ActionBarActivity {
             if (convertView==null){
                 convertView=layoutInflater.inflate(R.layout.list_item,parent,false);
             }
-            Team team=teamList.get(position);
+            final Team team=teamList.get(position);
             ImageView ivLogo=(ImageView)convertView.findViewById(R.id.ivLogo);
             TextView tvName=(TextView)convertView.findViewById(R.id.tvName);
             TextView tvId=(TextView)convertView.findViewById(R.id.tvId);
             ivLogo.setImageResource(team.getLogo());
             tvName.setText(team.getName());
             tvId.setText(Integer.toString(team.getId()));
+            tvId.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Toast.makeText(MainActivity.this,String.valueOf(team.getId()),Toast.LENGTH_SHORT).show();
+                }
+            });
+            tvName.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Toast.makeText(MainActivity.this, team.getName(), Toast.LENGTH_SHORT).show();
+                }
+            });
             return convertView;
         }
     }
