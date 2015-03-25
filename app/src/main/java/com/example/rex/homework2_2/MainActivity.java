@@ -41,16 +41,6 @@ public class MainActivity extends ActionBarActivity {
                 Toast.makeText(MainActivity.this, info, Toast.LENGTH_SHORT).show();
             }
         });
-//        AdapterView<?> parent = null;
-//
-//        Team team=(Team)parent.getItemAtPosition(team.getId());
-//        eamId.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                int position=(Integer)v.getTag();
-//                        Toast.makeText(MainActivity.this, position, Toast.LENGTH_SHORT).show();
-//            }
-//        });
 
     }
 
@@ -58,6 +48,7 @@ public class MainActivity extends ActionBarActivity {
         private LayoutInflater layoutInflater;
 
         public TeamAdapter(Context context){
+            //將Team的資料加入teamList中
             teamList=new ArrayList<>();
             teamList.add(new Team(1,R.drawable.p1," 第一隊 "));
             teamList.add(new Team(2,R.drawable.p2," 第二隊 "));
@@ -100,6 +91,7 @@ public class MainActivity extends ActionBarActivity {
             TextView tvId=(TextView)convertView.findViewById(R.id.tvId);
             ivLogo.setImageResource(team.getLogo());
             tvName.setText(team.getName());
+            //ID為整數型態必須轉換成字串可用Integer.toString() or String.valueOf()
             tvId.setText(Integer.toString(team.getId()));
             tvId.setOnClickListener(new View.OnClickListener() {
                 @Override

@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     >
-
+    <!--使用list_item將menu的值指定到相對位置-->
     <ImageView
         android:layout_width="48dp"
         android:layout_height="48dp"
